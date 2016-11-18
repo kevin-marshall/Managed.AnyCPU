@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AnyCPU.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnyCPU.Interop, Version=1.0.6165.42531, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -53,6 +59,7 @@
     <EmbeddedResource Include="Resources\x86\AnyCPU.Interop.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AnyCPU.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

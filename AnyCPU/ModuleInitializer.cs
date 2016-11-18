@@ -45,30 +45,33 @@ namespace AnyCPU
             }
             */
 
-            string file_path = System.Environment.GetEnvironmentVariable("TEMP") + "\\CppStack.Interop.dll";
+            string file_path = System.Environment.GetEnvironmentVariable("TEMP") + "\\" + assemblyName;
+            ;
             if (System.IO.File.Exists(file_path))
             {
                 System.IO.File.Delete(file_path);
             }
 
-            using (var assembly = System.Reflection.Assembly.GetAssembly(typeof(ModuleInitializer)).GetManifestResourceStream(resource_path))
+            using (var dll_resource = System.Reflection.Assembly.GetAssembly(typeof(ModuleInitializer)).GetManifestResourceStream(resource_path))
             {
-                if(assembly == null)
+                if(dll_resource == null)
                 {
                     return null; 
                 }
 
                 using (System.IO.FileStream file_stream = new FileStream(file_path, FileMode.Create))
                 {
-                    int ibyte = -1;
-                    while ((ibyte = assembly.ReadByte()) != -1)
-                    {
-                        file_stream.WriteByte(System.Convert.ToByte(ibyte));
-                    }
+                    byte[] byte_array = new byte[(int)dll_resource.Length];
+                    dll_resource.Read(byte_array, 0, (int)dll_resource.Length);
+
+                    file_stream.Write(byte_array, 0, byte_array.Length);
+                    return Assembly.Load(byte_array);
                 }
             }
 
-            return Assembly.LoadFile(file_path);
+            Assembly assembly = Assembly.LoadFile(file_path);
+            //File.Delete(file_path);
+            return assembly;
         }
     }
 }
