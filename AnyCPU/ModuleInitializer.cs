@@ -31,22 +31,8 @@ namespace AnyCPU
             }
 
             string resource_path = "AnyCPU.Resources." + platform + "." + assemblyName;
-            /*
-                * Cannot make this work!!!!
-            Assembly current_assembly = typeof(CppStackLoader).Assembly;
-
-            byte[] byte_array = null;
-            using (Stream assembly = current_assembly.GetManifestResourceStream(resource_path))
-            {
-                byte_array = new byte[(int)assembly.Length];
-                assembly.Read(byte_array, 0, (int)assembly.Length);
-
-                return Assembly.Load(byte_array);
-            }
-            */
-
             string file_path = System.Environment.GetEnvironmentVariable("TEMP") + "\\" + assemblyName;
-            ;
+
             if (System.IO.File.Exists(file_path))
             {
                 System.IO.File.Delete(file_path);
@@ -65,7 +51,7 @@ namespace AnyCPU
                     dll_resource.Read(byte_array, 0, (int)dll_resource.Length);
 
                     file_stream.Write(byte_array, 0, byte_array.Length);
-                    return Assembly.Load(byte_array);
+                    //return Assembly.Load(byte_array);
                 }
             }
 
