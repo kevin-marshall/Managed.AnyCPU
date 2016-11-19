@@ -107,7 +107,8 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y $(ProjectDir)bin\$(Configuration)\$(PlatformTarget)\$(TargetName).dll $(ProjectDir)bin\$(Configuration)\</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,7 +122,8 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y $(ProjectDir)bin\$(Configuration)\$(PlatformTarget)\$(TargetName).dll $(ProjectDir)bin\$(Configuration)\</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,7 +136,8 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y $(ProjectDir)bin\$(Configuration)\$(PlatformTarget)\$(TargetName).dll $(ProjectDir)bin\$(Configuration)\</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,7 +150,8 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y $(ProjectDir)bin\$(Configuration)\$(PlatformTarget)\$(TargetName).dll $(ProjectDir)bin\$(Configuration)\</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
