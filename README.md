@@ -5,6 +5,20 @@ I believe the cleanest way to reference managed C++ functionality from a C# dll,
 
 In order for the C++ functionality to be consumed by a C# dll, the C++ project must produce both x86 and x64 versions of the dll. It is impossible to reference just a x86 or  a x64 dll from a C# dll compiled with the AnyCPU setting.
 
+## Building the projects
+To build in Visual Studio: 
+1. Build->Batch Build-
+2. Check every checkbox under the Build title
+3. Press the Build button
+
+## Test projects
+1. Test->Windows->Test Explorer
+2. Test->Test Settings->Default Processor Architecture->x86
+3. "Run All" in test explorer
+4. Test->Test Settings->Default Processor Architecture->x64
+5. "Run All" in test explorer
+
+# Project Descriptions
 ## AnyCPU.Interop
 This is a managed C++ project producing both x86 and x64 dlls. It contains a single class with a method returning a discriptor identifying the CPU architecture the process is running on.
 
