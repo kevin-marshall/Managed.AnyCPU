@@ -6,8 +6,7 @@ I believe the cleanest way to reference managed C++ functionality from a C# dll,
 In order for the C++ functionality to be consumed by a C# dll, the C++ project must produce both x86 and x64 versions of the dll. It is impossible to reference just a x86 or  a x64 dll from a C# dll compiled with the AnyCPU setting.
 
 ## Building the projects
-To build in Visual Studio: 
-1. Build->Batch Build-
+1. Build->Batch Build
 2. Check every checkbox under the Build title
 3. Press the Build button
 
