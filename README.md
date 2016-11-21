@@ -45,3 +45,5 @@ This project references the AnyCPU project by copying the AnyCPU.dll alongside t
 
 ## Issues
 There is still one more issue to solve. I do not have a solution for deleting the managed C++ dll copied to disk from the AnyCPU's embedded resources. I have tried a couple of different approaches, but so far I have not found a good solution.
+
+If using nuget, a solution which solves the above issue is to configure the nuget package to create x86 and x64 directories when consumed by client code. Doing this absolves the need to emmbed the AnyCPU.Interop.dll into th AnyCPU.dll.
