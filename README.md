@@ -41,7 +41,7 @@ This project references the AnyCPU project by copying the AnyCPU.dll alongside t
 
 *Note: the project copies the AnyCPU dll using pre build events.*
 
-**In Visual Studio the menu path Test->Test Settings->Default Processor Architecture allows for setting the processor architecture which the unit tests are run on.**
+**In Visual Studio the menu path Test->Test Settings->Default Processor Architecture allows for setting the processor architecture the unit tests are run on.**
 
 ## Issues
 There is still one more issue to solve. I do not have a solution for deleting the managed C++ dll copied to disk from the AnyCPU's embedded resources. I have tried a couple of different approaches, but so far I have not found a good solution.
