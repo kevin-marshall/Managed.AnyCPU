@@ -60,12 +60,12 @@ namespace AnyCPU
 
                     file_stream.Write(byte_array, 0, byte_array.Length);
 
-                    // Since Managed C++ dlls also contained native code, the assembly must be loaded using a LoadFile!
+                    // Since Managed C++ dlls also contained native code, the assembly must be loaded using a LoadFrom!
                     //return Assembly.Load(byte_array);
                 }
             }
 
-            Assembly assembly = Assembly.LoadFile(file_path);
+            Assembly assembly = Assembly.LoadFrom(file_path);
 
             // Unable to delete file while the assembly is loaded into the domain. 
             //File.Delete(file_path);
