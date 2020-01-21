@@ -36,7 +36,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>AnyCPU.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnyCPU.Interop, Version=1.0.6165.42531, Culture=neutral, processorArchitecture=AMD64">
@@ -62,17 +63,11 @@
     <EmbeddedResource Include="Resources\x86\AnyCPU.Interop.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AnyCPU.snk" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy /Y $(SolutionDir)AnyCPU.Interop\bin\$(Configuration)\x86\AnyCPU.Interop.dll $(ProjectDir)Resources\x86
-xcopy /Y $(SolutionDir)AnyCPU.Interop\bin\$(Configuration)\x64\AnyCPU.Interop.dll $(ProjectDir)Resources\x64
-xcopy /Y $(SolutionDir)AnyCPU.Interop\bin\$(Configuration)\x64\AnyCPU.Interop.dll $(ProjectDir)bin\AnyCPU\$(Configuration)</PreBuildEvent>
+    <PreBuildEvent>xcopy /Y $(SolutionDir)AnyCPU.Interop\bin\$(Configuration)\x64\AnyCPU.Interop.dll $(ProjectDir)bin\AnyCPU\$(Configuration)</PreBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

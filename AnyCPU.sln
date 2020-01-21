@@ -13,9 +13,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyCPU.Test.Distribute", "AnyCPU.Test.Distribute\AnyCPU.Test.Distribute.csproj", "{714E1E66-992D-4142-9340-20FD5DE434CE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{1AB5037D-FBA8-49E9-A5A6-E052B98A7E1B} = {1AB5037D-FBA8-49E9-A5A6-E052B98A7E1B}
+		{B09C46E2-BD25-4F2D-A2F1-940AF36A5E11} = {B09C46E2-BD25-4F2D-A2F1-940AF36A5E11}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyCPU.Test.Develop", "AnyCPU.Test.Develop\AnyCPU.Test.Develop.csproj", "{8C32D695-9356-438D-A3BC-74E66E11B697}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B09C46E2-BD25-4F2D-A2F1-940AF36A5E11} = {B09C46E2-BD25-4F2D-A2F1-940AF36A5E11}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
