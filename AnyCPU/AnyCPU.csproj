@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.props" Condition="Exists('..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +12,8 @@
     <AssemblyName>AnyCPU</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,9 +74,14 @@
 xcopy /Y $(SolutionDir)AnyCPU.Interop\bin\$(Configuration)\x64\AnyCPU.Interop.dll $(ProjectDir)Resources\x64
 xcopy /Y $(SolutionDir)AnyCPU.Interop\bin\$(Configuration)\x64\AnyCPU.Interop.dll $(ProjectDir)bin\AnyCPU\$(Configuration)</PreBuildEvent>
   </PropertyGroup>
-  <Target Name="InjectModuleInitializer" AfterTargets="AfterBuild">
-    <Exec Command="..\packages\InjectModuleInitializer.1.5\tools\InjectModuleInitializer.exe &quot;$(TargetPath)&quot;" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.props'))" />
+    <Error Condition="!Exists('..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.targets'))" />
   </Target>
+  <Import Project="..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.targets" Condition="Exists('..\packages\InjectModuleInitializer.2.0.3\build\InjectModuleInitializer.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
